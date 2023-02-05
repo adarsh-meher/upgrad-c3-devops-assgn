@@ -38,7 +38,7 @@ then
     echo "Some container running."
     echo "Stopping the container."
     docker stop $x
-    docker "Removing the container"
+    echo "Removing the container"
     docker rm $x
     echo "Starting new docker container"
     echo "Using image ID : $(docker images  -aq ${ECR_REPO_LINK}/${ECR_REPO_NAME} | head -n 1)"
