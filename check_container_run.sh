@@ -20,7 +20,7 @@ else
 fi
 
 echo "$null_check"
-if [ "$null_check"=="Null" ]
+if [ "$null_check" = "Null" ]
 then 
     echo "No container running."
     echo "Starting new docker container"
@@ -29,7 +29,7 @@ then
 fi
 
 
-if [ "$null_check"=="Not Null" ]
+if [ "$null_check" = "Not Null" ]
 then
     echo "Some container running."
     echo "Stopping the container."
