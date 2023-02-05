@@ -51,8 +51,8 @@ pipeline {
                 sh "ls -l"
                 sh "Running script to check container status and take appropriate action."
                 sh '''
-                bash /home/ubuntu/workspace/app-pipeline-v1/check_container_run.sh
-                '''
+                x=$(docker ps -aqf "name=${CONTAINER_STATIC_NAME}")
+                echo "$x" '''
                 sh "Completed."
             }
         }
