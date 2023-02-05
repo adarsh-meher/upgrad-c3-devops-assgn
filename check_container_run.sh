@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/sh
 
 echo "Check if we have any container running."
 
