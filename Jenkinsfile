@@ -18,6 +18,7 @@ pipeline {
         ENVIRONMENT = "global"
         ECR_REPO_LINK = "262324735239.dkr.ecr.us-east-1.amazonaws.com"
         ECR_REPO_NAME = "assgn-c3-repo"
+        CONTAINER_STATIC_NAME = "node-app"
     }
 
     stages {
@@ -43,11 +44,16 @@ pipeline {
         stage('DEPLOY APP'){
             steps {
                 sh "ls -l"
-                sh 'chmod +x check_container_run.sh'
+                sh '''
+                cd /home/ubuntu/workspace/app-pipeline-v1
+                chmod +x check_container_run.sh '''
                 sh "echo $PWD"
                 sh "ls -l"
                 sh "Running script to check container status and take appropriate action."
-                sh '/home/ubuntu/workspace/app-pipeline-v1/check_container_run.sh'
+                sh '''
+                cd /home/ubuntu/workspace/app-pipeline-v1
+                ./check_container_run.sh 
+                '''
                 sh "Completed."
             }
         }
