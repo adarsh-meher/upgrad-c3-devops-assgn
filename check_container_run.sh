@@ -24,6 +24,8 @@ if [ "$null_check" = "Null" ]
 then 
     echo "No container running."
     echo "Starting new docker container"
+    echo "$(docker images  -aq ${ECR_REPO_LINK}/${ECR_REPO_NAME} | head -n 3)"
+    echo "$(docker images  -aq ${ECR_REPO_LINK}/${ECR_REPO_NAME} | head -n 1)"
     docker run -itd -p 8081:8081 --name $CONT_STATIC_NAME $(docker images  -aq ${ECR_REPO_LINK}/${ECR_REPO_NAME} | head -n 1)
     echo "Container started."
 fi
