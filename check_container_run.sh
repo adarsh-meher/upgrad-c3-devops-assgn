@@ -29,6 +29,7 @@ then
     echo "Using image ID : $(docker images  -aq ${ECR_REPO_LINK}/${ECR_REPO_NAME} | head -n 1)"
     docker run -itd -p 8081:8081 --name $CONT_STATIC_NAME $(docker images  -aq ${ECR_REPO_LINK}/${ECR_REPO_NAME} | head -n 1)
     echo "Container started."
+    docekr ps --all
 fi
 
 
@@ -43,4 +44,5 @@ then
     echo "Using image ID : $(docker images  -aq ${ECR_REPO_LINK}/${ECR_REPO_NAME} | head -n 1)"
     docker run -itd -p 8081:8081 --name $CONT_STATIC_NAME  $(docker images  -aq ${ECR_REPO_LINK}/${ECR_REPO_NAME} | head -n 1)
     echo "Container started."
+    docker ps --all
 fi
