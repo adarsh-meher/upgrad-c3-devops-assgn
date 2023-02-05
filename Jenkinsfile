@@ -44,7 +44,7 @@ pipeline {
             steps {
                 sh "ls -l"
                 sh "Running script to check container status and take appropriate action."
-                sh "./check_container_run.sh"
+                ./check_container_run.sh
                 sh "Completed."
             }
         }
