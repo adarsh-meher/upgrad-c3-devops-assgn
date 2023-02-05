@@ -43,9 +43,11 @@ pipeline {
         stage('DEPLOY APP'){
             steps {
                 sh "ls -l"
-                sh "Running script to check container status and take appropriate action."
                 sh 'chmod +x check_container_run.sh'
-                sh './check_container_run.sh'
+                sh "echo $PWD"
+                sh "ls -l"
+                sh "Running script to check container status and take appropriate action."
+                sh 'check_container_run.sh'
                 sh "Completed."
             }
         }
