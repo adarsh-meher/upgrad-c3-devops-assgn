@@ -19,7 +19,7 @@ else
         null_check="Not Null"
 fi
 
-
+echo "$null_check"
 if [ "$null_check"=="Null" ]
 then 
     echo "No container running."
