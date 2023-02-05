@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo "Check if we have any container running."
+echo "Check if we have any container with name node-app (static name) running."
 
 CONT_STATIC_NAME="node-app"
 ECR_REPO_LINK="262324735239.dkr.ecr.us-east-1.amazonaws.com"
