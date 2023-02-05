@@ -50,7 +50,9 @@ pipeline {
                 sh "echo $PWD"
                 sh "ls -l"
                 sh "Running script to check container status and take appropriate action."
-                sh '/home/ubuntu/workspace/app-pipeline-v1/check_container_run.sh'
+                sh '''
+                bash /home/ubuntu/workspace/app-pipeline-v1/check_container_run.sh
+                '''
                 sh "Completed."
             }
         }
