@@ -52,7 +52,6 @@ pipeline {
                 sh '''
                 x=$(docker ps -aqf "name=${CONTAINER_STATIC_NAME}")
                 echo "$x" '''
-                sh "Completed."
             }
         }
 
