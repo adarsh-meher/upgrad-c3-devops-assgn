@@ -15,23 +15,29 @@ pipeline {
     }
 
     environment {
-        ENVIRONMENT='global'
-        ECR_REPO_LINK = '262324735239.dkr.ecr.us-east-1.amazonaws.com'
-        ECR_REPO_NAME = 'assgn-c3-repo'
+        ENVIRONMENT = "global"
+        ECR_REPO_LINK = "262324735239.dkr.ecr.us-east-1.amazonaws.com"
+        ECR_REPO_NAME = "assgn-c3-repo"
     }
 
     stages {
         stage('GIT CHECKOUT'){
-            checkout scm
+            steps{
+                checkout scm
+            }
+            
         }
 
         stage('BUILD AND PUBLISH'){
+            steps {
             sh "ls -l"
             sh "echo Starting to build docker image."
             sh "docker build -t ${ECR_REPO_NAME}:v${BUILD_NUMBER} ."
             sh "docker tag ${ECR_REPO_NAME}:v${BUILD_NUMBER} ${ECR_REPO_LINK}/${ECR_REPO_NAME}:v${BUILD_NUMBER}"
             sh "docker push ${ECR_REPO_LINK}/${ECR_REPO_NAME}:v${BUILD_NUMBER}"
             sh "echo Docker push complete"
+            }
+            
         }
 
     }
