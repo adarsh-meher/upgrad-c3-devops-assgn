@@ -49,9 +49,7 @@ pipeline {
                 chmod +x check_container_run.sh '''
                 sh "echo $PWD"
                 sh "ls -l"
-                sh '''
-                x=$(docker ps -aqf "name=${CONTAINER_STATIC_NAME}")
-                echo "$x" '''
+                sh './check_container_run.sh'
             }
         }
 
